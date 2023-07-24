@@ -6,15 +6,6 @@ import pandas as pd
 def scrape_products_info(page_url):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'}
     response=requests.get(page_url, headers=headers)
-    
-    
-    
-    if response==None:
-       print('Page is not available')
-    
-    
-    
-    
     soup=BeautifulSoup(response.content, "html.parser")
     s=soup.find('div', class_="s-main-slot s-result-list s-search-results sg-row")
     product_containers=s.find_all('div', class_="sg-col-20-of-24 s-result-item s-asin sg-col-0-of-12 sg-col-16-of-20 sg-col s-widget-spacing-small sg-col-12-of-16")
